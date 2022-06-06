@@ -60,8 +60,25 @@ ifneq (REL,$(PLATFORM_VERSION_CODENAME))
   PRODUCT_PACKAGES += com.android.vndk.current.on_vendor
 endif
 
+include device/google/bonito/device-lineage.mk
+
+WITH_GMS := true
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2160
+TARGET_SCREEN_WIDTH := 1080
+
+# Device identifier. This must come after all inclusions
 PRODUCT_MANUFACTURER := Google
-PRODUCT_BRAND := Android
+PRODUCT_BRAND := google
 PRODUCT_NAME := aosp_bonito
 PRODUCT_DEVICE := bonito
-PRODUCT_MODEL := AOSP on bonito
+PRODUCT_MODEL := Pixel 3a XL
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_PRODUCT==bonito \
+    PRIVATE_BUILD_DESC="bonito-user 12 SP2A.220505.002 8353555 release-keys"
+
+BUILD_FINGERPRINT := google/bonito/bonito:12/SP2A.220505.002/8353555:user/release-keys
+
+$(call inherit-product, vendor/google/bonito/bonito-vendor.mk)
