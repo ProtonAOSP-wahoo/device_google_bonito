@@ -25,4 +25,7 @@ else
   -include vendor/google_devices/bonito/proprietary/BoardConfigVendor.mk
 endif
 
+# TWRP
+TARGET_PREBUILT_RECOVERY_RAMDISK_IMG := device/google/bonito/bonito/twrp-ramdisk
+
 include device/google/bonito/bonito/BoardConfigLineage.mk
